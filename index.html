@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Machine</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="header">
+    </header>
+
+
+    <body onload="init()" class="flex pos-center">
+        <section class="gallery">
+            <!-- <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt="">
+            <img src="meme-imgs/1.jpg" alt=""> -->
+        </section>
+        <section class="generator flex">
+            <div class="canvas-container">
+                <canvas height="400" width="400"></canvas>
+            </div>
+            <div class="tools-container flex pos-center">
+                <input placeholder="Your Text Here" type="text">
+                <div class="flex pos-center">
+                    <button><img src="icons/icons8-up-100.png" alt=""></button>
+                    <button><img src="icons/icons8-down-100.png" alt=""></button>
+                    <button><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button><img src="icons/add.png" alt=""></button>
+                    <button onclick="clearText()"><img src="icons/trash.png" alt=""></button>
+                </div>
+                <div class="flex pos-center">
+                    <button><img src="icons/increase font - icon.png" alt=""></button>
+                    <button><img src="icons/decrease font - icon.png" alt=""></button>
+                    <button><img src="icons/align-to-left.png" alt=""></button>
+                    <button><img src="icons/center-text-alignment.png" alt=""></button>
+                    <button><img src="icons/align-to-right.png" alt=""></button>
+                </div>
+                
+                <div class="flex pos-center">
+                    <select name="" id="">
+                        <option value="">text</option>
+                        <option value="">gg</option>
+                    </select>
+                    <button><img src="icons/text stroke.png" alt=""></button>
+                    <button><img src="icons/paint-board-and-brush.png" alt=""></button>
+                </div>
+
+            </div>
+        </section>
+
+
+    </body>
+
+
+    <footer>
+
+    </footer>
+
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/meme-controler.js"></script>
+</body>
+
+</html>

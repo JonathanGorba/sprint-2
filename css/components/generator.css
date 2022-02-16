@@ -1,0 +1,44 @@
+canvas{
+    border: 2px solid black;
+}
+.tools-container{
+    height: 400px;
+    width: 400px;
+    border: 2px solid rgb(134, 134, 134);
+    flex-direction: column;
+}
+.tools-container img{
+    height: 30px;
+    width: 30px;
+}
+.tools-container button{
+    padding: 3px;
+    height: 40px;
+    width: 40px;
+    border: solid black 2px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+/* .tools-container button{
+    
+} */
+.tools-container input{
+    width: 232px;
+    height: 40px;
+    border: solid black 2px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.tools-container select{
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    margin: 5px;
+    border: solid black 2px;
+    border-radius: 5px;
+}
+.tools-container div{
+    height: 50px;
+}
