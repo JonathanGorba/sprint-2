@@ -33,6 +33,27 @@ function renderMeme() {
     })
 }
 
+function onMoveText(direction) {
+    moveText(direction);
+    renderMeme();
+}
+
+function onChangeFontSize(direction) {
+    changeFontSize(direction);
+    renderMeme();
+}
+
+function onChangeLine() {
+    changeLine();
+}
+
+function onTextChange(eltxt) {
+    const txt = eltxt.value;
+    console.log(eltxt.value);
+    textChange(txt);
+    renderMeme();
+}
+
 function drawImg(img) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
@@ -42,7 +63,7 @@ function drawText(txt, x, y, font, size, align, color, filling) {
     gCtx.strokeStyle = color;
     gCtx.fillStyle = filling;
     gCtx.textAlign = align;
-    gCtx.font = size+' '+font;
+    gCtx.font = size + 'px ' + font;
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
 }
@@ -54,8 +75,15 @@ function setDefaults() {
     gCtx.font = '40px Impact';
 }
 
-function onAlineText(direction) {
+function onCreateNewLine() {
+    createNewLine();
+    changeToLastLine();
+    renderMeme();
+}
 
+function onAlineText(direction) {
+    alineText(direction);
+    renderMeme();
 }
 
 function clearText() {

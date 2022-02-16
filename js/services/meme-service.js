@@ -99,21 +99,21 @@ function newMemeId(id) {
 }
 
 function createNewLine() {
-
     if (gMeme.lines.length < 1) {
         var x = gCanvas.width / 2;
         var y = 50;
-    } else if (gMeme.lines.length = 1) {
+    } else if (gMeme.lines.length === 1) {
         var x = gCanvas.width / 2;
-        var y = gCanvas.height / 2;
+        var y = gCanvas.height - 50;
     } else {
         var x = gCanvas.width / 2;
-        var y = gCanvas.height-50;
+        var y = gCanvas.height / 2;
     }
+    console.log('push');
     gMeme.lines.push({
         txt: 'Your Text Here',
         font: 'Impact',
-        size: '40px',
+        size: '40',
         align: 'center',
         color: 'black',
         filling: 'white',
@@ -131,7 +131,52 @@ function clearLines() {
 }
 
 function alineText(direction) {
-    gMeme.lines[gMeme.selectedLineIdx].aligh = direction;
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    line.align = direction;
+    if (direction === 'end') {
+        line.x = gCanvas.width;
+    } else if (direction === 'start') {
+        line.x = 0;
+    } else {
+        line.x = gCanvas.width / 2;
+    }
+}
+
+function moveText(direction) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    if (direction === 'up') {
+        line.y -= 2;
+    } else {
+        line.y += 2;
+    }
+}
+
+function changeLine() {
+    if (gMeme.lines.length <= 1) {
+        return;
+    } else if (gMeme.lines.length - 1 <= gMeme.selectedLineIdx) {
+        gMeme.selectedLineIdx = 0;
+        return
+    }
+    gMeme.selectedLineIdx++
+}
+
+function changeToLastLine() {
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function textChange(txt) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    line.txt = txt;
+}
+
+function changeFontSize(direction) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    if (direction === 'up') {
+        line.size++;
+    } else {
+        line.size--;
+    }
 }
 
 function getImgs() {
