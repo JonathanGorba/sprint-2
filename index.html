@@ -30,29 +30,32 @@
                 <canvas height="400" width="400"></canvas>
             </div>
             <div class="tools-container flex pos-center">
-                <input onkeyup="onTextChange(this)" placeholder="Your Text Here" type="text">
+                <input oninput="onTextChange(this)" placeholder="Your Text Here" type="text">
                 <div class="flex pos-center">
                     <button onclick="onMoveText('up')"><img src="icons/icons8-up-100.png" alt=""></button>
                     <button onclick="onMoveText('down')"><img src="icons/icons8-down-100.png" alt=""></button>
-                    <button onclick="onChangeLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button onclick="onChangeLine()"><img
+                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     <button onclick="onCreateNewLine()"><img src="icons/add.png" alt=""></button>
                     <button onclick="clearText()"><img src="icons/trash.png" alt=""></button>
                 </div>
                 <div class="flex pos-center">
                     <button onclick="onChangeFontSize('up')"><img src="icons/increase font - icon.png" alt=""></button>
-                    <button onclick="onChangeFontSize('down')"><img src="icons/decrease font - icon.png" alt=""></button>
+                    <button onclick="onChangeFontSize('down')"><img src="icons/decrease font - icon.png"
+                            alt=""></button>
                     <button onclick="onAlineText('start')"><img src="icons/align-to-left.png" alt=""></button>
                     <button onclick="onAlineText('center')"><img src="icons/center-text-alignment.png" alt=""></button>
                     <button onclick="onAlineText('end')"><img src="icons/align-to-right.png" alt=""></button>
                 </div>
-                
+
                 <div class="flex pos-center">
-                    <select name="" id="">
-                        <option value="">text</option>
-                        <option value="">gg</option>
+                    <select onchange="onFontChange(this.value)" name="" id="">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
                     </select>
-                    <button><img src="icons/text stroke.png" alt=""></button>
-                    <button><img src="icons/paint-board-and-brush.png" alt=""></button>
+                    <button><label for="fill-color"><img src="icons/text stroke.png" alt=""><input oninput="onChangeFilling(this.value)" class="color-input" type="color" name="" id="fill-color"></label></button>
+                    <button><label for="text-color"><img src="icons/paint-board-and-brush.png"
+                                alt=""></label><input oninput="onChangeColor(this.value)" class="color-input" type="color" name="" id="text-color"></button>
                 </div>
 
             </div>

@@ -109,7 +109,6 @@ function createNewLine() {
         var x = gCanvas.width / 2;
         var y = gCanvas.height / 2;
     }
-    console.log('push');
     gMeme.lines.push({
         txt: 'Your Text Here',
         font: 'Impact',
@@ -185,4 +184,19 @@ function getImgs() {
 
 function getMeme() {
     return gMeme;
+}
+
+function fontChange(font) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    line.font = font;
+}
+
+function changeColor(color) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    line.color = color;
+}
+
+function changeFilling(color) {
+    const line = gMeme.lines[gMeme.selectedLineIdx];
+    line.filling = color;
 }

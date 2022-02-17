@@ -31,6 +31,7 @@ function renderMeme() {
     meme.lines.forEach(line => {
         drawText(line.txt, line.x, line.y, line.font, line.size, line.align, line.color, line.filling)
     })
+    textBox(meme.lines[meme.selectedLineIdx]);
 }
 
 function onMoveText(direction) {
@@ -45,11 +46,11 @@ function onChangeFontSize(direction) {
 
 function onChangeLine() {
     changeLine();
+    renderMeme();
 }
 
 function onTextChange(eltxt) {
     const txt = eltxt.value;
-    console.log(eltxt.value);
     textChange(txt);
     renderMeme();
 }
@@ -59,7 +60,6 @@ function drawImg(img) {
 }
 
 function drawText(txt, x, y, font, size, align, color, filling) {
-    console.log(txt, x, y, font, size, align, color, filling);
     gCtx.strokeStyle = color;
     gCtx.fillStyle = filling;
     gCtx.textAlign = align;
@@ -68,11 +68,40 @@ function drawText(txt, x, y, font, size, align, color, filling) {
     gCtx.strokeText(txt, x, y);
 }
 
+function textBox(line) {
+    const txtMeasures = gCtx.measureText(line.txt);
+    console.log(line);
+    console.log(txtMeasures);
+    var sx;
+    var ex;
+    if (line.align === 'end') {
+        sx = line.x - txtMeasures.width - line.size/2;
+        // ex = line.x - txtMeasures.width - line.size / 2;
+    } else if (line.align === 'start') {
+        sx = line.x - line.size / 2;
+        // ex = line.x + txtMeasures.width + line.size / 2;
+    } else {
+        sx = line.x - txtMeasures.width / 2 - line.size / 2;
+        // ex = line.x + txtMeasures.width / 2 + line.size / 2;
+    }
+    ex = (txtMeasures.width + +line.size);
+    const sy = line.y - line.size;
+    const ey = line.size*1.2;
+    console.log(sx, sy, ex, ey);
+    drawRect(sx, sy, ex, ey);
+}
+
 function setDefaults() {
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = 'white';
     gCtx.textAlign = "center";
     gCtx.font = '40px Impact';
+}
+
+function drawRect(sx, sy, ex, ey) {
+    gCtx.strokeStyle = 'black';
+    gCtx.lineWidth = '3px';
+    gCtx.strokeRect(sx, sy, ex, ey);
 }
 
 function onCreateNewLine() {
@@ -88,5 +117,20 @@ function onAlineText(direction) {
 
 function clearText() {
     clearLines();
+    // renderMeme();
+}
+
+function onFontChange(font) {
+    fontChange(font);
+    renderMeme();
+}
+
+function onChangeColor(color) {
+    changeColor(color);
+    renderMeme();
+}
+
+function onChangeFilling(color) {
+    changeFilling(color);
     renderMeme();
 }
