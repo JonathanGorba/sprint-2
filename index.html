@@ -9,68 +9,77 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <header class="header">
+<body onload="init()" class="flex pos-center">
+    <header class="header flex">
+        <h2>Meme Machine</h2>
+        <nav class="flex">
+            <div onclick="galleryMode()">Gallery</div>
+            <div onclick="generatorMode()">Generator</div>
+        </nav>
     </header>
 
 
-    <body onload="init()" class="flex pos-center">
-        <section class="gallery">
-            <!-- <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt="">
-            <img src="meme-imgs/1.jpg" alt=""> -->
-        </section>
-        <section class="generator flex">
-            <div class="canvas-container">
-                <canvas height="400" width="400"></canvas>
+    <section class="gallery">
+    </section>
+    <section class="generator flex pos-center">
+        <div class="canvas-container">
+            <canvas></canvas>
+        </div>
+        <div class="tools-container flex pos-center">
+            <input oninput="onTextChange(this)" placeholder="Your Text Here" type="text">
+            <div class="flex pos-center">
+                <button onclick="onMoveText('up')"><img src="icons/icons8-up-100.png" alt=""></button>
+                <button onclick="onMoveText('down')"><img src="icons/icons8-down-100.png" alt=""></button>
+                <button onclick="onChangeLine()"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"alt=""></button>
+                <button onclick="onCreateNewLine()"><img src="icons/add.png" alt=""></button>
+                <button onclick="onDeleteLine()"><img src="icons/eraser.png" alt=""></button>
             </div>
-            <div class="tools-container flex pos-center">
-                <input oninput="onTextChange(this)" placeholder="Your Text Here" type="text">
-                <div class="flex pos-center">
-                    <button onclick="onMoveText('up')"><img src="icons/icons8-up-100.png" alt=""></button>
-                    <button onclick="onMoveText('down')"><img src="icons/icons8-down-100.png" alt=""></button>
-                    <button onclick="onChangeLine()"><img
-                            src="icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                    <button onclick="onCreateNewLine()"><img src="icons/add.png" alt=""></button>
-                    <button onclick="clearText()"><img src="icons/trash.png" alt=""></button>
-                </div>
-                <div class="flex pos-center">
-                    <button onclick="onChangeFontSize('up')"><img src="icons/increase font - icon.png" alt=""></button>
-                    <button onclick="onChangeFontSize('down')"><img src="icons/decrease font - icon.png"
-                            alt=""></button>
-                    <button onclick="onAlineText('start')"><img src="icons/align-to-left.png" alt=""></button>
-                    <button onclick="onAlineText('center')"><img src="icons/center-text-alignment.png" alt=""></button>
-                    <button onclick="onAlineText('end')"><img src="icons/align-to-right.png" alt=""></button>
-                </div>
-
-                <div class="flex pos-center">
-                    <select onchange="onFontChange(this.value)" name="" id="">
-                        <option value="Impact">Impact</option>
-                        <option value="Arial">Arial</option>
-                    </select>
-                    <button><label for="fill-color"><img src="icons/text stroke.png" alt=""><input oninput="onChangeFilling(this.value)" class="color-input" type="color" name="" id="fill-color"></label></button>
-                    <button><label for="text-color"><img src="icons/paint-board-and-brush.png"
-                                alt=""></label><input oninput="onChangeColor(this.value)" class="color-input" type="color" name="" id="text-color"></button>
-                </div>
-
+            <div class="flex pos-center">
+                <button onclick="onChangeFontSize('up')"><img src="icons/increase font - icon.png" alt=""></button>
+                <button onclick="onChangeFontSize('down')"><img src="icons/decrease font - icon.png" alt=""></button>
+                <button onclick="onAlineText('start')"><img src="icons/align-to-left.png" alt=""></button>
+                <button onclick="onAlineText('center')"><img src="icons/center-text-alignment.png" alt=""></button>
+                <button onclick="onAlineText('end')"><img src="icons/align-to-right.png" alt=""></button>
             </div>
-        </section>
+            <div class="flex pos-center">
+                <select onchange="onFontChange(this.value)" name="" id="">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                </select>
+                <button><label for="fill-color"><img src="icons/text stroke.png" alt=""><input
+                            oninput="onChangeFilling(this.value)" class="color-input" type="color" name=""
+                            id="fill-color"></label></button>
+                <button><label for="text-color"><img src="icons/paint-board-and-brush.png" alt=""></label><input
+                        oninput="onChangeColor(this.value)" class="color-input" type="color" name=""
+                        id="text-color"></button>
+            </div>
+            <div class="sticker-bar flex pos-center">
+                <img onclick="onStickerClick('stickers/1.png')" src="stickers/1.png" alt="">
+                <img onclick="onStickerClick('stickers/2.png')" src="stickers/2.png" alt="">
+                <img onclick="onStickerClick('stickers/3.png')" src="stickers/3.png" alt="">
+                <img onclick="onStickerClick('stickers/4.png')" src="stickers/4.png" alt="">
+                <img onclick="onStickerClick('stickers/5.png')" src="stickers/5.png" alt="">
+                <img onclick="onStickerClick('stickers/6.png')" src="stickers/6.png" alt="">
+            </div>
+            <div class="flex pos-center">
+                <button onclick="download()"><img src="icons/download.png" alt=""></button>
+                <button onclick="onDeleteAll()"><img src="icons/trash.png" alt=""></button>
+            </div>
+
+        </div>
+    </section>
 
 
-    </body>
+</body>
 
 
-    <footer>
+<footer class="flex pos-center">
+    <h2>Meme Machine</h2>
+<small>All rights reserved 2022</small>
+</footer>
 
-    </footer>
-
-    <script src="js/services/meme-service.js"></script>
-    <script src="js/meme-controler.js"></script>
+<script src="js/services/meme-service.js"></script>
+<script src="js/meme-controler.js"></script>
 </body>
 
 </html>

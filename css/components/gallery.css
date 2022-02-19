@@ -1,15 +1,16 @@
 .gallery{
-    margin-top: 20px;
+    padding: 30px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 234px);
-    grid-template-rows: repeat(auto-fit, 234px);
-    width: 1000px;
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-template-rows: repeat(auto-fit, 150px);
     gap: 20px;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }
 .gallery img{
     object-fit: contain;
-    height: 230px;
+    height: 150px;
     border: 2px solid black;
+    cursor: pointer;
 }

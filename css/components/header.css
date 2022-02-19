@@ -2,6 +2,18 @@
 .header{
     margin: 0 auto;
     height: 60px;
-    width: 1000px;
-    background-color: aqua;
+    width: 100vw;
+    background-color: rgb(142, 179, 223);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+nav div:first-child{
+    padding-right: 30px;
+}
+nav div{
+    cursor: pointer;
+}
+nav div:hover{
+    color: rgb(71, 71, 71);
 }

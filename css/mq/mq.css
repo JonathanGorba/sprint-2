@@ -1,0 +1,57 @@
+
+
+
+/* medium */
+@media (min-width: 775px) {
+    footer{
+        width: 700px;
+    }
+    .canvas-container{
+        height: 500px;
+        width: 500px;
+    }
+    .header{
+        width: 700px;
+        padding: 0 50px;
+    }
+    .gallery{
+        width: 700px;
+        grid-template-columns: repeat(auto-fit, 220px);
+        grid-template-rows: repeat(auto-fit, 220px);
+    }
+    .gallery img{
+        height: 220px;
+    }
+}
+
+/* large */
+
+@media (min-width: 1050px) {
+    .canvas-container{
+        height: 660px;
+        width: 660px;
+    }
+    .header{
+        width: 1000px;
+    }
+    footer{
+        width: 1000px;
+    }
+    .generator{
+        flex-direction: row;
+        
+    }
+    .tools-container{
+        height: 484px;
+        align-items: flex-start;
+        width: fit-content;
+    }
+    .gallery{
+        width: 1000px;
+        grid-template-columns: repeat(auto-fit, 235px);
+        grid-template-rows: repeat(auto-fit, 235px);
+    }
+    .gallery img{
+        height: 235px;
+    }
+}

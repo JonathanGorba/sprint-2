@@ -1,11 +1,20 @@
-canvas{
+.canvas-container{
     border: 2px solid black;
+    height: 300px;
+    width: 300px;
+}
+.generator{
+    gap: 90px;
+    padding: 30px 0px;
+    width: 100vw;
+    flex-direction: column;
 }
 .tools-container{
-    height: 400px;
-    width: 400px;
-    border: 2px solid rgb(134, 134, 134);
+    
+    width: 484px;
+    
     flex-direction: column;
+    
 }
 .tools-container img{
     height: 30px;
@@ -21,12 +30,9 @@ canvas{
     border-radius: 5px;
     margin: 5px;
     cursor: pointer;
+    background-color: white;
 }
-/* .tools-container button{
-    
-} */
 .tools-container .color-input{
-    /* display: none; */
     position: absolute;
     right: 10px;
     height: 0px;
@@ -40,7 +46,7 @@ canvas{
     cursor: pointer;
 }
 .tools-container input{
-    width: 232px;
+    width: 240px;
     height: 40px;
     border: solid black 2px;
     margin: 5px;
@@ -55,6 +61,12 @@ canvas{
     border: solid black 2px;
     border-radius: 5px;
 }
-.tools-container div{
-    height: 50px;
+.sticker-bar img{
+    height: 82px;
+    width: 82px;
+    padding: 3px;
+}
+.sticker-bar{
+max-width: 250px;
+flex-wrap: wrap;
 }

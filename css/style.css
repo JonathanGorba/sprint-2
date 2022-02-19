@@ -1,4 +1,7 @@
 
+/* typography */
+@import 'setup/typography.css';
+
 /* basic */
 @import 'basic/helpers.css';
 @import 'basic/base.css';
@@ -7,3 +10,8 @@
 @import 'components/header.css';
 @import 'components/generator.css';
 @import 'components/gallery.css';
+@import 'components/footer.css';
+
+/* mq */
+@import 'mq/mq.css';
+
