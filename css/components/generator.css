@@ -1,20 +1,15 @@
 .canvas-container{
-    border: 2px solid black;
-    height: 300px;
     width: 300px;
 }
 .generator{
-    gap: 90px;
+    gap: 10px;
     padding: 30px 0px;
     width: 100vw;
     flex-direction: column;
 }
 .tools-container{
-    
     width: 484px;
-    
     flex-direction: column;
-    
 }
 .tools-container img{
     height: 30px;

@@ -7,7 +7,6 @@
         width: 700px;
     }
     .canvas-container{
-        height: 500px;
         width: 500px;
     }
     .header{
@@ -20,7 +19,10 @@
         grid-template-rows: repeat(auto-fit, 220px);
     }
     .gallery img{
-        height: 220px;
+        width: 100%;
+    }
+    .generator{
+        gap: 30px;
     }
 }
 
@@ -28,7 +30,6 @@
 
 @media (min-width: 1050px) {
     .canvas-container{
-        height: 660px;
         width: 660px;
     }
     .header{
@@ -39,6 +40,7 @@
     }
     .generator{
         flex-direction: row;
+        gap: 90px;
         
     }
     .tools-container{
@@ -52,6 +54,6 @@
         grid-template-rows: repeat(auto-fit, 235px);
     }
     .gallery img{
-        height: 235px;
+        width: 100%;
     }
 }

@@ -12,3 +12,7 @@ h2{
      font-size: 2em;
      font-weight: 400;
 }
+canvas{
+    width: 100%;
+    border: 2px solid black;
+}

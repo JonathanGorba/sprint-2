@@ -9,14 +9,10 @@ function init() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d');
     renderGallery();
-    resizeCanvas();
+    renderMeme();
     galleryMode();
     window.addEventListener('resize', () => {
-        var newWidth = window.innerWidth;
-        generatorMode();
-        resizeCanvas();
-        galleryMode();
-
+        renderMeme();
     });
     addListeners()
 }
@@ -30,8 +26,8 @@ function renderGallery() {
     document.querySelector('.gallery').innerHTML = html;
 }
 
-function onImgClick(id) {
-    newMemeId(id);
+function onImgClick(idx) {
+    newMeme(idx);
     clearText();
     clearStickers();
     createNewLine();
@@ -41,6 +37,7 @@ function onImgClick(id) {
 
 function renderMeme(mode) {
     const meme = getMeme();
+    resizeCanvasToDisplaySize(gCanvas, meme.imgRatio);
     var img = new Image();
     img.src = getImgs()[meme.selectedImgId].url;
     drawImg(img);
@@ -86,6 +83,7 @@ function onChangeLine() {
 }
 
 function onTextChange(eltxt) {
+    if (gObjDragged === 'sticker') return;
     const txt = eltxt.value;
     textChange(txt);
     renderMeme();
@@ -201,10 +199,11 @@ function onChangeFilling(color) {
     renderMeme();
 }
 
-function generatorMode() {
-    gMode = 'gen';
+function generatorMode(ev) {
+    if (!(ev === 'resize')) gMode = 'gen';
     document.querySelector('.generator').style.display = 'flex'
     document.querySelector('.gallery').style.display = 'none'
+    renderMeme();
 }
 
 
@@ -226,14 +225,6 @@ function download_image() {
     link.download = "my-meme.png";
     link.href = image;
     link.click();
-}
-
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container');
-    // Note: changing the canvas dimension this way clears the canvas
-    gCanvas.width = elContainer.offsetWidth - 4;
-    // Unless needed, better keep height fixed.
-    gCanvas.height = elContainer.offsetHeight - 4;
 }
 
 function addListeners() {
@@ -355,4 +346,21 @@ function isObjClicked(clickedPos) {
             console.log('yes s');
         }
     })
+}
+
+function resizeCanvasToDisplaySize(canvas, ratio) {
+    // Lookup the size the browser is displaying the canvas in CSS pixels.
+    const displayWidth = canvas.clientWidth;
+    const displayHeight = canvas.clientWidth * ratio;
+
+    // Check if the canvas is not the same size.
+    const needResize =
+        canvas.width !== displayWidth ||
+        canvas.height !== displayHeight;
+
+    if (needResize) {
+        // Make the canvas the same size
+        canvas.width = displayWidth;
+        canvas.height = displayHeight;
+    }
 }

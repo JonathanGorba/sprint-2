@@ -1,103 +1,146 @@
 var gImgs = [{
     id: 1,
     url: 'img/1.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['woman', 'free']
 },
 {
     id: 2,
     url: 'img/2.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['politics', 'man']
 },
 {
     id: 3,
     url: 'img/3.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['dog', 'animal']
 },
 {
     id: 4,
     url: 'img/4.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['baby', 'dog']
 },
 {
     id: 5,
     url: 'img/5.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['baby', 'succes']
 },
 {
     id: 6,
     url: 'img/6.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['keyboard', 'cat']
 },
 {
     id: 7,
     url: 'img/7.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['actor', 'willywonka']
 },
 {
     id: 8,
     url: 'img/8.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['baby', 'funny']
 },
 {
     id: 9,
     url: 'img/9.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['pointing', 'man']
 },
 {
     id: 10,
     url: 'img/10.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['whytho', 'man']
 },
 {
     id: 11,
     url: 'img/11.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['aliens', 'man']
 },
 {
     id: 12,
     url: 'img/12.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['funny', 'man']
 },
 {
     id: 13,
     url: 'img/13.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['kids', 'thirdworld']
 },
 {
     id: 14,
     url: 'img/14.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['man', 'politics']
 },
 {
     id: 15,
     url: 'img/15.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['baby', 'funny']
 },
 {
     id: 16,
     url: 'img/16.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['dog', 'animal']
 },
 {
     id: 17,
     url: 'img/17.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['funny', 'politics']
 },
 {
     id: 18,
     url: 'img/18.jpg',
-    keywords: ['funny', 'cat']
+    keywords: ['man', 'sports']
+},
+{
+    id: 19,
+    url: 'img/19.jpg',
+    keywords: ['actor', 'man']
+},
+{
+    id: 20,
+    url: 'img/20.jpg',
+    keywords: ['acctor', 'man']
+},
+{
+    id: 21,
+    url: 'img/21.jpg',
+    keywords: ['actor', 'man']
+},
+{
+    id: 22,
+    url: 'img/22.jpg',
+    keywords: ['woman', 'funny']
+},
+{
+    id: 23,
+    url: 'img/23.jpg',
+    keywords: ['man', 'sunny']
+},
+{
+    id: 24,
+    url: 'img/24.jpg',
+    keywords: ['politics', 'man']
+},
+{
+    id: 25,
+    url: 'img/25.jpg',
+    keywords: ['toys', 'funny']
 },];
 var gMeme = {
     selectedImgId: 0,
+    imgRatio:1,
     selectedLineIdx: 0,
     selectedStickerIdx: 0,
     lines: [],
     stickers: []
 }
+var gKeywordSearchCountMap = {'funny': 16,'cat': 8, 'baby': 2, 'dog': 5, 'man': 6};
 
-function newMemeId(id) {
-    gMeme.selectedImgId = id;
+
+function newMeme(idx) {
+    gMeme.selectedImgId = idx;
+    img= new Image();
+    img.src = gImgs[idx].url;
+    var height = img.height;
+    var width = img.width;
+    gMeme.imgRatio= (height/width);
 }
 
 function changeToSticker(idx){
