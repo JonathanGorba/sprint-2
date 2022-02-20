@@ -10,7 +10,6 @@
 }
 .gallery img{
     object-fit: contain;
-    height: 150px;
-    border: 2px solid black;
+    width: 100%;
     cursor: pointer;
 }
